@@ -14,3 +14,13 @@ export const GlobalContext = createContext({
         done: false,
       },]
 });
+
+
+
+
+const ContexProvider = () => {
+  return (
+    <div>GlobalContex</div>
+  )
+}
+
