@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import {Link} from 'react-router-dom'
 import { GlobalContext } from "../context/GlobalContex";
+import { Link } from "react-router-dom";
 
 const TaskList = () => {
-  const {tasks} = useContext(GlobalContext);
+  const { tasks, deleteTask, toggleTaskDone } = useContext(GlobalContext);
 
   return (
     <div className="flex justify-center">
@@ -20,7 +20,7 @@ const TaskList = () => {
                 <p>{task.description}</p>
                 <button
                   className="bg-purple-600 hover:bg-purple-500 py-1 px-3 mt-2 "
-                  
+                  onClick={() => toggleTaskDone(task.id)}
                 >
                   {task.done ? "Undone" : "Done"}
                 </button>
@@ -35,7 +35,7 @@ const TaskList = () => {
 
                 <button
                   className="bg-red-600 hover:bg-red-500 py-2 px-4 mr-2"
-                
+                  onClick={() => deleteTask(task.id)}
                 >
                   Delete
                 </button>
@@ -48,7 +48,6 @@ const TaskList = () => {
       )}
     </div>
   );
-
 };
 
 export default TaskList;

@@ -1,11 +1,13 @@
 import {Routes, Route} from "react-router-dom";
 import { Header, TaskForm, TaskList } from "./components/";
+import {GlobalProvider } from "./context/GlobalContex";
 
 import "./App.css";
 
 function App() {
   return (
     <>
+    <GlobalProvider>
       <Header />
       <div className="h-screen text-white text-center p-10">
       <div className="container mx-auto h-full">
@@ -17,6 +19,7 @@ function App() {
       </Routes>
       </div>
       </div>
+      </GlobalProvider>
     </>
   );
 }
